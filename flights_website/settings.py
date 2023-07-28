@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,7 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_hr7$4tcc5!!3b6haoy8!5s0c^by+#%%1qw14w(j9$_eq$-_qi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.environ.get('DJANGO_ENV') == 'local':
+    DEBUG = False
+else:
+    # Production settings
+    DEBUG = False
+    # Other production settings
 
 ALLOWED_HOSTS = ['flights-home.onrender.com', '127.0.0.1']
 
@@ -117,14 +122,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = '/static/'
+STATIC_URL = 'static/'
+STATIC_ROOT = 'static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
-MEDIA_URL = '/images/'
-MEDIA_ROOT = '/static/images/'
+if DEBUG:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static')
+    ]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_URL = 'images/'
+MEDIA_ROOT = 'static/images/'
 
 AUTH_USER_MODEL = "flight.MyUser"
 
