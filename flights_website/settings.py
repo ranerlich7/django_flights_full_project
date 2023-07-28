@@ -123,6 +123,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 MEDIA_ROOT = 'static/' 
+STATIC_ROOT = 'static/'
 
 AUTH_USER_MODEL = "flight.MyUser"
 
