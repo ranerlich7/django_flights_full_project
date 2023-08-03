@@ -10,3 +10,11 @@
 
 # start server
 python manage.py runserver
+
+
+# deploy to render:
+1. upload to render
+2. django version downgrade
+3. add render host to allowed hosts in settings.py
+4. pillow install & version downgrade
+5. remove db from git ignore
