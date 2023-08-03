@@ -1,4 +1,5 @@
 # start django project
+
 1. create a folder and open it in visual studio
 2. python -m venv venv
 3. ./venv/Scripts/activate
@@ -9,12 +10,15 @@
 8. python manage.py createsuperuser
 
 # start server
+
 python manage.py runserver
 
-
 # deploy to render:
-1. upload to render
-2. django version downgrade
-3. add render host to allowed hosts in settings.py
-4. pillow install & version downgrade
-5. remove db from git ignore
+
+1. remove db from git ignore - so it will upload to render
+2. deploy to render - create a new server. connect to github.
+3. django version downgrade
+4. add render host to allowed hosts in settings.py
+5. add whitenoise
+6. add script.(not neccesary?)
+7. now - add db in render
