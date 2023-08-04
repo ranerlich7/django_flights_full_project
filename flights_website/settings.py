@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'flights_o3mt',
         'USER': 'ran',
         'PASSWORD': 'RICJRJJEiQXZU8Rb6YRou7jCdmGvABfO',
-        'HOST': 'postgres://dpg-cj66n32cn0vc738hv5p0-a.oregon-postgres.render.com',     # Or the database server's IP address
+        'HOST': 'dpg-cj66n32cn0vc738hv5p0-a.oregon-postgres.render.com',     # Or the database server's IP address
         'PORT': '',              # Leave empty to use the default PostgreSQL port (5432)
     }
 }
