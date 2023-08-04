@@ -78,10 +78,20 @@ WSGI_APPLICATION = 'flights_website.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'NAME': 'flights_db_4',
+           'USER': 'ran',
+           'PASSWORD': 'va40F6YFRDE45SmHDaEX2aID04P5X6dE',
+           'HOST': 'dpg-cj6c9h6e546c7399i6l0-a.oregon-postgres.render.com',       
+           
+           'PORT': '5432',
+       }
+
 }
 
 
