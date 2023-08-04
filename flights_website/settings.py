@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -85,8 +88,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'flights_o3mt',
         'USER': 'ran',
-        'PASSWORD': 'RICJRJJEiQXZU8Rb6YRou7jCdmGvABfO',
-        'HOST': 'dpg-cj66n32cn0vc738hv5p0-a.oregon-postgres.render.com',     # Or the database server's IP address
+        'PASSWORD':  os.environ['FLIGHT_DB_PASS'] ,
+        # 'RICJRJJEiQXZU8Rb6YRou7jCdmGvABfO',
+        'HOST': os.environ['FLIGHT_DB_HOST'],
+        # 'postgres://dpg-cj66n32cn0vc738hv5p0-a.oregon-postgres.render.com',
         'PORT': '',              # Leave empty to use the default PostgreSQL port (5432)
     }
 }
